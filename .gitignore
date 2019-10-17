@@ -1,0 +1,13 @@
+# Node Modules
+node_modules/*
+
+# Mac file
+.DS_Store
+
+# Omit contents of the following folders
+typings/*
+
+# Visual Studio Code Config
+.vscode/*
+jsconfig.json
+typings.json
