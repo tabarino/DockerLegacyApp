@@ -1,3 +1,11 @@
+/app/Config/database.php
+/app/tmp
+/vendor
+/build
+/dist
+/tags
+*.mo
+
 # Node Modules
 node_modules/*
 

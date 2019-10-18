@@ -1,0 +1,34 @@
+version: "3"
+services:
+  app:
+    image: cakephp-app
+    container_name: cakephp-app
+    depends_on: 
+      - mysql
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 8888:80
+    volumes:
+      - .:/srv/cakephp
+  cake:
+    image: cakephp-app
+    container_name: cakephp-console
+    depends_on:
+      - app
+    volumes:
+      - .:/srv/cakephp
+    entrypoint: [
+      "/srv/cakephp/app/Console/cake",
+      "-app", "/srv/cakephp/app"
+    ]
+  mysql:
+    image: mysql:5.5
+    ports:
+      - 13306:3306
+    environment: 
+      MYSQL_DATABASE: cakephp
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: secret

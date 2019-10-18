@@ -18,6 +18,18 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+//  phpinfo(); exit();
+// ini_set('display_errors', 1);
+
+/**
+ * Add Autoload
+ */
+require __DIR__ . '/../../vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../../');
+$dotenv->load();
+
+// var_dump(cakeenv('APP_DEBUG')); exit;
+
 /**
  * Use the DS to separate the directories in other defines
  */
